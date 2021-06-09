@@ -32,7 +32,8 @@
 @include('layouts.core.menu-left')
 <main class="admin-main">
     <!--site header begins-->
-@include('layouts.core.navbar')    <!--site header ends -->
+@include('layouts.core.navbar')
+<!--site header ends -->
 @yield('content ')
 
 </main>
@@ -169,23 +170,23 @@
 </div>
 
 
-<script src="{{asset('')}}/vendor/jquery/jquery.min.js"></script>
-<script src="{{asset('')}}/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="{{asset('')}}/vendor/popper/popper.js"></script>
-<script src="{{asset('')}}/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="{{asset('')}}/vendor/select2/js/select2.full.min.js"></script>
-<script src="{{asset('')}}/vendor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="{{asset('')}}/vendor/listjs/listjs.min.js"></script>
-<script src="{{asset('')}}/vendor/moment/moment.min.js"></script>
-<script src="{{asset('')}}/vendor/daterangepicker/daterangepicker.js"></script>
-<script src="{{asset('')}}/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="{{asset('')}}/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
-<script src="{{asset('')}}/js/atmos.min.js"></script>
+<script src="{{asset('light/assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/popper/popper.js')}}"></script>
+<script src="{{asset('light/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/listjs/listjs.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/moment/moment.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/daterangepicker/daterangepicker.js')}}"></script>
+<script src="{{asset('light/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('light/assets/vendor/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+<script src="{{asset('light/assets/js/atmos.min.js')}}"></script>
 <!--page specific scripts for demo-->
 
 <!--Additional Page includes-->
-<script src="{{asset('')}}/vendor/apexchart/apexcharts.min.js"></script>
+<script src="{{asset('light/assets/vendor/apexchart/apexcharts.min.js')}}"></script>
 <!--chart data for current dashboard-->
-<script src="assets/js/dashboard-01.js" type="text/javascript"></script>
+<script src="{{asset('light/assets/vendor/assets/js/dashboard-01.js')}}" type="text/javascript"></script>
 </body>
 </html>

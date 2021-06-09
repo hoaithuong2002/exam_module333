@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('content')
+@section('content ')
     <div class="card">
         <form method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
             @csrf
@@ -51,6 +51,4 @@
                 <button type="submit" class="btn btn-outline-success btn-lg btn-block">Add Coffer</button>
         </form>
     </div>
-
-
 @endsection
