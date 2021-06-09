@@ -22,15 +22,15 @@
                         <td>{{++$key}}</td>
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
+                        <td>{{$product->category->name ?? 'Khong xac dinh'}}</td>
                         <td><img src="{{asset('storage/' .$product->image)}}" width="200" alt=""></td>
-                        <td>{{$product->categories->name}}</td>
                         <td>
                             <div class="action-box">
                                 <a onclick="return confirm('Are you sure delete user: {{ $product->name }}')"
                                    class="btn btn-outline-danger"
                                    href="{{ route('product.delete', $product->id) }}">Delete</a>
                                 <a class="btn btn-outline-info"
-                                   href="{{ route('prduct.edit', $product->id) }}">Edit</a>
+                                   href="{{ route('product.edit', $product->id) }}">Edit</a>
                             </div>
                         </td>
                     @endforeach

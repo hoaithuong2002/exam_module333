@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories  = Category::all();
+        return view('product.create',compact('categories'));
     }
 
     /**
@@ -36,18 +38,20 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request): \Illuminate\Http\Response
+    public function store(Request $request): \Illuminate\Http\Response
     {
         $product = new Product();
         $product->name =$request->name;
         $product->price =$request->price;
+        $product->category_id = $request->category_id;
         $path = $request->file('image')->store('/image', 'public');
         $product->image = $path;
-        $product->save();
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $file->storeAs('public/image', 'anh_' . $product->id);
         }
+        $product->save();
+
         return redirect()->route('product.index');
 
     }
@@ -71,7 +75,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product, $id)
+    public function edit($id): \Illuminate\Http\Response
     {
         $product = Product::find($id);
         return view('product.edit',compact('product'));
@@ -84,14 +88,13 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProductRequest $request,$id)
+    public function update(Request $request,$id): \Illuminate\Http\RedirectResponse
     {
         $product = Product::find($id);
         $product->name =$request->name;
         $product->price =$request->price;
         $path = $request->file('image')->store('/image', 'public');
         $product->image = $path;
-        $product->categories();
         $product->save();
         if ($request->hasFile('image')) {
             $file = $request->file('image');

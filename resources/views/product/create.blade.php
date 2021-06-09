@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="price" class=" form-control-label">Price <i
                                 class="contact-index-index ">*</i></label>
-                        <input type="date" id="price" name="price"
+                        <input type="number" id="price" name="price"
                                class="form-control col-sm-12 @error('price') border-danger @enderror ">
                         @error('price')
                         <p class="text-danger">{{ $message }}</p>
@@ -32,23 +32,22 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                </div>
-                    <div class="row form-group">
-                        <div class="col col-6">
-                            <div class="form-group">
-                                <label for="category_id" class=" form-control-label">Category ID <i
-                                        class="contact-index-index ">*</i></label>
-                                <input type="number" id="amount" name="amount"
-                                       class="form-control @error('category_id') border-danger @enderror">
-                                @error('category_id')
-                                <p class="text-danger"> {{$message}}</p>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="category_id" class=" form-control-label">Category ID<i
+                                class="contact-index-index ">*</i></label>
+                        <select id="" name="category_id"  class="form-control @error('category_id') border-danger @enderror">@error('category_id')
+                            <p class="text-danger"> {{$message}}</p>
+                            @enderror>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
 
+                        </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-success btn-lg btn-block">Add Coffer</button>
+
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-lg btn-block">Add Coffee</button>
         </form>
     </div>
 @endsection

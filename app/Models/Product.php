@@ -14,4 +14,9 @@ class Product extends Model
         'price',
         'image',
     ];
+
+    function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
 }
