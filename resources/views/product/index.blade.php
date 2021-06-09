@@ -18,21 +18,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key=>$product)
-                        <td>{{++$key}}</td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->price}}</td>
-                        <td>{{$product->category->name ?? 'Khong xac dinh'}}</td>
-                        <td><img src="{{asset('storage/' .$product->image)}}" width="200" alt=""></td>
-                        <td>
-                            <div class="action-box">
-                                <a onclick="return confirm('Are you sure delete user: {{ $product->name }}')"
-                                   class="btn btn-outline-danger"
-                                   href="{{ route('product.delete', $product->id) }}">Delete</a>
-                                <a class="btn btn-outline-info"
-                                   href="{{ route('product.edit', $product->id) }}">Edit</a>
-                            </div>
-                        </td>
+                    @foreach($products as $key => $product)
+                        <tr>
+                            <td>{{++$key}}</td>
+                            <td>{{$product->name}}</td>
+                            <td>{{$product->price}}</td>
+                            <td><img src="{{asset('storage/' .$product->image)}}" width="200" alt=""></td>
+                            <td>{{$product->category->name ?? 'Khong xac dinh'}}</td>
+                            <td>
+                                <div class="action-box">
+                                    <a onclick="return confirm('Are you sure delete user: {{ $product->name }}')"
+                                       class="btn btn-outline-danger"
+                                       href="{{ route('product.delete', $product->id) }}">Delete</a>
+                                    <a class="btn btn-outline-info"
+                                       href="{{ route('product.edit', $product->id) }}">Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+
                     @endforeach
 
                 </tbody>
